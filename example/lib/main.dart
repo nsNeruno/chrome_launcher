@@ -90,8 +90,14 @@ class _MainPageState extends State<MainPage> {
         return;
       }
       final data = _urlController.text;
-      final uri = Uri.tryParse(data,);
-      chromeLauncher.launchWithChrome(uri,).catchError((e) {
+
+      chromeLauncher.isChromeDefaultBrowser().then((isDefaultBrowser) {
+        debugPrint("isDefaultBrowser: $isDefaultBrowser",);
+      },).catchError((e) {
+        debugPrint("isDefaultBrowser: $e",);
+      },);
+
+      chromeLauncher.launchWithChrome(data,).catchError((e) {
         debugPrint(e.toString(),);
         showDialog(
           context: context,

@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Browser
+import android.util.Log
 import android.webkit.URLUtil
 import androidx.annotation.NonNull
 
@@ -46,6 +47,19 @@ class ChromeLauncherPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
           result.error(ex.javaClass.name, ex.message, null)
         } catch (ex: Error) {
           result.error(ex.javaClass.name, ex.message, null)
+        }
+      }
+      "isChromeDefaultBrowser" -> {
+        val intent = Intent().apply {
+          action = Intent.ACTION_VIEW
+          data = Uri.parse("https://")
+        }
+        val resolveInfo = activityContext.packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY)
+        val packageName = resolveInfo?.activityInfo?.packageName
+        if (packageName == null) {
+          result.error("PackageNotFoundException", "Unable to identify packageName of Default Browser", null)
+        } else {
+          result.success(packageName == chromePackage || packageName.contains(chromePackage))
         }
       }
       "launchWithChrome" -> {

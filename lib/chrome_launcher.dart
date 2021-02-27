@@ -25,6 +25,13 @@ class ChromeLauncher {
     return false;
   }
 
+  Future<bool> isChromeDefaultBrowser() async {
+    if (Platform.isAndroid) {
+      return _channel.invokeMethod<bool>("isChromeDefaultBrowser",);
+    }
+    return false;
+  }
+
   Future<void> launchWithChrome(String url,) async {
     if (Platform.isAndroid) {
       await _channel.invokeMethod(

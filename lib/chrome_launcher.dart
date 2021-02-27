@@ -25,10 +25,11 @@ class ChromeLauncher {
     return false;
   }
 
-  Future<void> launchWithChrome(Uri uri,) async {
+  Future<void> launchWithChrome(String url,) async {
     if (Platform.isAndroid) {
       await _channel.invokeMethod(
-        "launchWithChrome", { "url": uri.toString(),},);
+        "launchWithChrome", { "url": url, },
+      );
     }
   }
 }

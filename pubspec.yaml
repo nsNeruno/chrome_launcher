@@ -29,8 +29,6 @@ flutter:
       android:
         package: lab.neruno.chrome_launcher
         pluginClass: ChromeLauncherPlugin
-      ios:
-        pluginClass: ChromeLauncherPlugin
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/chrome_launcher.iml" filepath="$PROJECT_DIR$/chrome_launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/chrome_launcher_android.iml" filepath="$PROJECT_DIR$/android/chrome_launcher_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/example/android/chrome_launcher_example_android.iml" filepath="$PROJECT_DIR$/example/android/chrome_launcher_example_android.iml" />
+    </modules>
+  </component>
+</project>

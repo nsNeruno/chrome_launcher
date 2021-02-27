@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
+import android.os.Bundle
+import android.provider.Browser
 import android.webkit.URLUtil
 import androidx.annotation.NonNull
 
@@ -58,9 +60,10 @@ class ChromeLauncherPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         }
         try {
           val intent = Intent().apply {
-            `package` = chromePackage
-            data = Uri.parse(url)
             action = Intent.ACTION_VIEW
+            data = Uri.parse(url)
+            putExtra(Browser.EXTRA_HEADERS, Bundle())
+            `package` = chromePackage
           }
           activityContext.startActivity(intent)
           result.success(null)

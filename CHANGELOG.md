@@ -1,3 +1,7 @@
+## 1.2.0
+
+* Added null-safety support
+
 ## 1.1.0
 
 * Changed launchWithChrome param type from Uri to String

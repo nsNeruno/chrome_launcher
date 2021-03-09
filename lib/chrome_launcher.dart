@@ -8,11 +8,11 @@ class ChromeLauncher {
 
   ChromeLauncher._();
 
-  static ChromeLauncher _instance;
+  static ChromeLauncher? _instance;
 
   factory ChromeLauncher() {
     _instance ??= ChromeLauncher._();
-    return _instance;
+    return _instance!;
   }
 
   static const MethodChannel _channel =
@@ -20,14 +20,14 @@ class ChromeLauncher {
 
   Future<bool> hasChromeInstalled() async {
     if (Platform.isAndroid) {
-      return _channel.invokeMethod<bool>("hasChromeInstalled",);
+      return (await _channel.invokeMethod<bool?>("hasChromeInstalled",)) == true;
     }
     return false;
   }
 
   Future<bool> isChromeDefaultBrowser() async {
     if (Platform.isAndroid) {
-      return _channel.invokeMethod<bool>("isChromeDefaultBrowser",);
+      return (await _channel.invokeMethod<bool?>("isChromeDefaultBrowser",)) == true;
     }
     return false;
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:chrome_launcher/chrome_launcher.dart';
@@ -50,7 +49,7 @@ class _MainPageState extends State<MainPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 24.0,),
-                child: RaisedButton(
+                child: ElevatedButton(
                   onPressed: _launchWithChrome,
                   child: Text("Launch with Chrome",),
                 ),
@@ -80,7 +79,7 @@ class _MainPageState extends State<MainPage> {
             title: Text("Unable to proceed",),
             content: Text("Your device doesn't have Chrome installed/enabled",),
             actions: [
-              FlatButton(
+              TextButton(
                 onPressed: () => Navigator.of(context,).pop(),
                 child: Text("Close",),
               ),
@@ -105,7 +104,7 @@ class _MainPageState extends State<MainPage> {
             title: Text("Failed to launch with Chrome",),
             content: Text(e.toString(),),
             actions: [
-              FlatButton(
+              TextButton(
                 onPressed: () => Navigator.of(context,).pop(),
                 child: Text("Close",),
               ),

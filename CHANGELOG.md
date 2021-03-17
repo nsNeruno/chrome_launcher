@@ -1,3 +1,7 @@
+## 2.1.0
+
+* Added Intent Categories ***BROWSABLE*** and ***DEFAULT*** when launching Chrome Intent
+
 ## 2.0.0
 
 * Added null-safety support

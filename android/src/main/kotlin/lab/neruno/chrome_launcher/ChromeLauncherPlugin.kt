@@ -75,6 +75,8 @@ class ChromeLauncherPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {
         try {
           val intent = Intent().apply {
             action = Intent.ACTION_VIEW
+            addCategory(Intent.CATEGORY_DEFAULT)
+            addCategory(Intent.CATEGORY_BROWSABLE)
             data = Uri.parse(url)
             putExtra(Browser.EXTRA_HEADERS, Bundle())
             `package` = chromePackage
